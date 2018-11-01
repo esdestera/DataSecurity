@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int displacement;
+    int i,j;
+    char expr[100] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    char caesarEncr[100];
+    printf("Enter the displacement: ");
+    scanf("%d", &displacement);
+    
+    for(i = 0; i < strlen(expr); i++){
+        int asciiExpr = (int)expr[i];
+        //Daca este spatiu.
+        if(asciiExpr >= 65 && asciiExpr <= 90 || asciiExpr >= 97 && asciiExpr <= 122){
+            asciiExpr = asciiExpr + displacement;
+            
+            if(asciiExpr > 90 && asciiExpr <= 90 + displacement || asciiExpr > 122 && asciiExpr <= 122 + displacement ){
+                asciiExpr = asciiExpr - 26;
+            }
+        }
+        else{
+            asciiExpr = expr[i];
+        }
+        
+        caesarEncr[i] = (char)asciiExpr;
+        printf("%c", caesarEncr[i]);
+    }
+}
