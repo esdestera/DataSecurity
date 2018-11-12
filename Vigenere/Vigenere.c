@@ -68,7 +68,7 @@ int main()
 	int ret, i, j;
 	fopen_s(&f, "key.txt", "rt");
 	fopen_s(&g, "plain.txt", "rt");
-	fopen_s(&h, "decrypted.txt", "rt");
+	fopen_s(&h, "cyphered.txt", "rt");
 	while (fgets(plainText, 1000, g) != NULL && fgets(key, 1000, f) != NULL && fgets(cypheredText, 1000, h)) {
 		populateMatrix();
 		for (i = 0; i < MATRIXDIMENSION; i++) {
